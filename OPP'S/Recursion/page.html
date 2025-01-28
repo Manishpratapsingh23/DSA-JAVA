@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="nav.css">
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            background-color: #333;
+            padding: 10px;
+        }
+        .nav-item, .nav-item2 {
+            color: white;
+            padding: 10px;
+            position: relative;
+        }
+        .nav-item2 select, .nav-item select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .nav-item select {
+            width: 100px;
+        }
+        .nav-item select option[hidden] {
+            display: none;
+        }
+        .nav-item::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid white;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+        .nav-item2::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid white;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-item">Descript</div>
+        <div class="nav-item dropdown">
+            Features
+            <div class="select-container">
+                <select>
+                    <option value="Feature1">Feature 1</option>
+                    <option value="Feature2">Feature 2</option>
+                    <option value="Feature3">Feature 3</option>
+                </select>
+            </div>
+        </div>
+        <div class="nav-item">Underload</div>
+        <div class="nav-item dropdown">
+            For Work
+            <div>
+                <select>
+                    <option hidden></option>
+                    <option value="Work1">Work 1</option>
+                    <option value="Work2">Work 2</option>
+                    <option value="Work3">Work 3</option>
+                </select>
+            </div>
+        </div>
+        <div class="nav-item">Pricing</div>
+        <div class="nav-item2">Resources
+            <div class="select-container">
+                <select>
+                    <option value="Resource1">Resource 1</option>
+                    <option value="Resource2">Resource 2</option>
+                    <option value="Resource3">Resource 3</option>
+                </select>
+            </div>
+        </div>
+        <div class="nav-item">Sign in</div>
+        <div class="nav-item">
+            <button type="submit">Sign up</button>
+        </div>
+    </div>
+</body>
+</html>
