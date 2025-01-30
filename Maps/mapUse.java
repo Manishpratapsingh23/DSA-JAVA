@@ -32,8 +32,9 @@ public class mapUse {
         System.out.println(x);
         
         HashMap<Character,Integer> map1=new HashMap<>();
-        for(int i=65;i<91;i++)
-        map1.put((char)(i),i);
+        for(int i=65;i<91;i++){
+            map1.put((char)(i),i);
+        }
         Set<Character> keys=map1.keySet();
         for(char ch: keys)
         System.out.println(ch+" "+map1.get(ch));
