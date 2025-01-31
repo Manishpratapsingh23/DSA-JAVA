@@ -1,7 +1,4 @@
-
-import Priority_Queue.priorityQueue;
-
-
+package Priority_Queue;
 public class priorityQueueUse {
     public static void main(String args[]){
         int arr[]={7,3,2,6,1,0,-1};
@@ -13,5 +10,6 @@ public class priorityQueueUse {
             System.out.print(pq.removeMin()+" ");
         }
         System.out.println();
+        System.out.println("Minimum: "+pq.getMin());
     }
 }
