@@ -2,7 +2,7 @@
 public class MergeSortUsingRecursion {
     public static void main(String[] args) {
         //Scanner sc = new Scanner(System.in);
-        int arr[] = { 4, 9, 7, 1, 6, 8, 5, 2, 3, 0 };
+        int arr[] = { 4, 1, 6, 5, 2, 3, 0 };
         int start = 0;
         int end = arr.length;
         display(arr);
