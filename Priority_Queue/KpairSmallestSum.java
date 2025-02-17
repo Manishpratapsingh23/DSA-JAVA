@@ -23,7 +23,6 @@ public class KpairSmallestSum {
         pair pairAns=new pair(priority,0,0);
         pq.add(pairAns);
         int index=1;
-        whi
         while(index<nums1.length){
             pair top=pq.peek();
             int i=top.i;
