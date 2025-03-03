@@ -38,8 +38,7 @@ public class BalancedBSTs {
     }
 
     public static void main(String[] args) {
-        long n=10;
-        int n1=7;
+        int n1=4;
         System.out.println("Using recursion: "+countBalancedBST(n1));
         System.out.println("Using memoization: "+countBalancedBSTM(n1));
         System.out.println("Using DP: "+countBalancedBST_DP(n1));

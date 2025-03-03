@@ -9,10 +9,10 @@ public class  Main{
             int a=sc.nextInt();
             int b=sc.nextInt();
             int distance=Math.abs(a-b);
-            if (distance >= 2) {
-                System.out.println("YES");
-            } else {
+            if (distance%2 == 1) {
                 System.out.println("NO");
+            } else{
+                System.out.println("YES");
             }
         }
     }
