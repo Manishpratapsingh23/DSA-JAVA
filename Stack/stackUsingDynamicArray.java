@@ -35,7 +35,7 @@ public class stackUsingDynamicArray {
     public void push(int element) {
         // If the stack is full, double the size of the array
         if (size() == data.length) {
-            System.out.println("changing ar/ray length");
+            System.out.println("changing array length");
             int[] newData = new int[capacity * 2];
             for (int i = 0; i < capacity; i++) {
 
