@@ -2,6 +2,32 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
+/*
+Intput:
+            7
+            8
+            0 1
+            0 2
+            3 1
+            4 1
+            5 3
+            5 4
+            6 2
+            6 5
+
+     (0)
+    /   \
+  (1)   (2)
+  / \     |
+(3) (4)  (6)
+  \   |  /
+   \  | /
+    (5)
+            
+output: DFS traversal : 0 1 3 5 4 6 2
+            BFS traversal : 0 1 2 3 4 6 5
+ */
+
 public class Graph {
     private static void printHelper_DFS(int edges[][], int sv, boolean visited[]) {
         // Start Vertex=sv
@@ -55,8 +81,8 @@ public class Graph {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int e = sc.nextInt();
+        int n = sc.nextInt(); // n= vertices
+        int e = sc.nextInt(); // e= edges
         int edges[][] = new int[n][n];
 
         for (int i = 0; i < e; i++) {
@@ -78,3 +104,4 @@ public class Graph {
         sc.close();
     }
 }
+
