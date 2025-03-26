@@ -1,23 +1,54 @@
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class Graph {
-    private static void printHelper(int edges[][], int sv, boolean visited[]) {
+    private static void printHelper_DFS(int edges[][], int sv, boolean visited[]) {
         // Start Vertex=sv
-        System.out.println(sv);
+        System.out.print(sv+" ");
         visited[sv] = true;
         int n = edges.length;
         for (int i = 0; i < n; i++) {
             if (edges[sv][i] == 1 && !visited[i]) {
-                printHelper(edges, i, visited);
+                printHelper_DFS(edges, i, visited);
             }
         }
     }
 
-    public static void print(int edges[][]) {
+    public static void print_DFS(int edges[][]) {
         boolean visited[] = new boolean[edges.length];
         for (int i = 0; i < edges.length; i++) {
             if (!visited[i]) {
-                printHelper(edges, i, visited);
+                printHelper_DFS(edges, i, visited);
+            }
+        }
+    }
+
+    private static void printHelper_BFS(int edges[][], int sv, boolean visited[]) {
+        // Start Vertex=sv
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(sv);
+        visited[sv]=true;
+        int n = edges.length;
+        while(!queue.isEmpty()){
+            sv=queue.remove();
+            
+            System.out.print(sv+" ");
+            for (int i = 0; i < n; i++) {
+                if (edges[sv][i] == 1 && !visited[i]) {
+                    queue.add(i);
+                    visited[i] = true;
+                }
+            }
+            
+        }
+    }
+
+    public static void print_BFS(int edges[][]) {
+        boolean visited[] = new boolean[edges.length];
+        for (int i = 0; i < edges.length; i++) {
+            if (!visited[i]) {
+                printHelper_BFS(edges, i, visited);
             }
         }
     }
@@ -37,7 +68,11 @@ public class Graph {
         }
         
         // Start DFS traversal
-        print(edges);
+        System.out.print("DFS traversal : ");
+        print_DFS(edges);
+        System.out.println();
+        System.out.print("BFS traversal : ");
+        print_BFS(edges);
         
         // Close the scanner
         sc.close();
