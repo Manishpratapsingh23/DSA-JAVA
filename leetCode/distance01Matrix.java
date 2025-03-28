@@ -35,45 +35,57 @@ import java.util.Arrays;
             int m = mat.length;
             int n = mat[0].length;
             int[][] memo = new int[m][n];
+            // for (int[] row : memo) {
+            //     Arrays.fill(row, -1);
+            // }
     
-            // Initialize memo array with -1 (indicating uncomputed values)
-            for (int[] row : memo) {
-                Arrays.fill(row, -1);
-            }
-    
-            // Compute distance for each cell recursively
+            // for (int i = 0; i < m; i++) {
+            //     for (int j = 0; j < n; j++) {
+            //         if (mat[i][j] == 1) {
+            //             memo[i][j] = helperM(mat, i, j, m, n, memo);
+            //         } else {
+            //             memo[i][j] = 0; // Distance for 0 is always 0
+            //         }
+            //     }
+            // }
+            // return memo;
             for (int i = 0; i < m; i++) {
-                for (int j = 0; j < n; j++) {
-                    if (mat[i][j] == 1) {
-                        memo[i][j] = helperM(mat, i, j, m, n, memo);
-                    } else {
-                        memo[i][j] = 0; // Distance for 0 is always 0
-                    }
+            Arrays.fill(memo[i], Integer.MAX_VALUE / 2);
+        }
+
+        // Compute top-left to bottom-right (only up and left)
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (mat[i][j] == 0) {
+                    memo[i][j] = 0;
+                } else {
+                    if (i > 0) memo[i][j] = Math.min(memo[i][j], 1 + memo[i - 1][j]);
+                    if (j > 0) memo[i][j] = Math.min(memo[i][j], 1 + memo[i][j - 1]);
                 }
             }
-            return memo;
+        }
+
+        // Compute bottom-right to top-left (only down and right)
+        for (int i = m - 1; i >= 0; i--) {
+            for (int j = n - 1; j >= 0; j--) {
+                if (i < m - 1) memo[i][j] = Math.min(memo[i][j], 1 + memo[i + 1][j]);
+                if (j < n - 1) memo[i][j] = Math.min(memo[i][j], 1 + memo[i][j + 1]);
+            }
+        }
+
+        return memo;
         }
     
         private static int helperM(int[][] mat, int i, int j, int m, int n, int[][] memo) {
-            // If out of bounds, return a large number (to avoid incorrect min calculations)
             if (i < 0 || j < 0 || i >= m || j >= n) {
                 return Integer.MAX_VALUE / 2;
             }
-    
-            // If already computed, return stored result
             if (memo[i][j] != -1) {
                 return memo[i][j];
             }
-    
-            // If the current cell is 0, return 0
             if (mat[i][j] == 0) {
                 return 0;
             }
-    
-            // Initialize distance as a large number
-            //int minDist = Integer.MAX_VALUE / 2;
-    
-            // Recursive calls in all four directions
                 int op1=1+helperM(mat, i - 1, j, m, n, memo);
                 int op2=1+helperM(mat, i + 1, j, m, n, memo);
                 int op3=1+helperM(mat, i, j - 1, m, n, memo);
@@ -81,6 +93,7 @@ import java.util.Arrays;
     
             memo[i][j] = Math.min(Math.min(op1,op2),Math.min(op3,op4));
             return memo[i][j];
+            
         }
     
         public static void main(String[] args) {

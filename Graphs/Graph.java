@@ -43,6 +43,14 @@ public class Graph {
 
     public static void print_DFS(int edges[][]) {
         boolean visited[] = new boolean[edges.length];
+        // we have use this for loop because there might be some case when the graph might be some vertices not 
+        //connected to each other
+        /*
+         1 --- 2     4 --- 5
+          \   /      
+            3
+            this type of graph called connected component graph
+         */
         for (int i = 0; i < edges.length; i++) {
             if (!visited[i]) {
                 printHelper_DFS(edges, i, visited);
@@ -57,7 +65,11 @@ public class Graph {
         visited[sv]=true;
         int n = edges.length;
         while(!queue.isEmpty()){
-            sv=queue.remove();
+            try {
+                sv=queue.remove();
+            } catch (Exception e) {
+                return;
+            }
             
             System.out.print(sv+" ");
             for (int i = 0; i < n; i++) {
@@ -72,6 +84,22 @@ public class Graph {
 
     public static void print_BFS(int edges[][]) {
         boolean visited[] = new boolean[edges.length];
+        // we have use this for loop because there might be some case when the graph might be some vertices not 
+        //connected to each other
+        /*
+         1 --- 2     4 --- 5
+          \   /      
+            3
+            this type of graph called connected component graph
+
+        6
+        4
+        1 2
+        1 3
+        2 3
+        4 5
+
+         */
         for (int i = 0; i < edges.length; i++) {
             if (!visited[i]) {
                 printHelper_BFS(edges, i, visited);
