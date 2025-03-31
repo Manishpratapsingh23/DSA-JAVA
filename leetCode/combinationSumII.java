@@ -11,17 +11,17 @@ public class combinationSumII {
         return result;
     }
     private static void helper(int nums[], int index, int target, List<Integer> lst, List<List<Integer>> result){
-        if(index>=nums.length || target<0) return;
         if(target==0){
-            if(!result.contains(lst)){
-                result.add(new ArrayList<>(lst));
-            }
+            result.add(new ArrayList<>(lst));
             return;
         }
-        lst.add(nums[index]);
-        helper(nums, index+1, target - nums[index], lst, result);
-        lst.remove(lst.size() - 1); 
-        helper(nums, index + 1, target, lst, result);
+        for(int i=index;i<nums.length;i++){
+            if(i>index && nums[i]==nums[i-1]) continue;
+            if(nums[i]>target) break;
+            lst.add(nums[i]);
+            helper(nums, i+1, target-nums[i], lst, result);
+            lst.remove(lst.size()-1);
+        }
     }
     public static void main(String[] args) {        
         int arr[]={10,1,2,7,6,1,5};
