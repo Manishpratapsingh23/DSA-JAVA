@@ -13,7 +13,7 @@ public class binarySearchTree {
         } else if (data > root.data) {
             root.right = insertDataHelper(data, root.right);
         }
-        return root; 
+        return root;  
     }
     public void insertData(int data) {
         root = insertDataHelper(data, root);

@@ -262,14 +262,12 @@ public class BinarySearchTreeUse {
         int heightOfLeft=heightOfTree(root.left);
         int heightOfRight=heightOfTree(root.right);
         return height+Math.max(heightOfLeft, heightOfRight);
-    }
-   
+    } 
     public static List<Integer> BSTtoSortedArray(BinaryTreeNode<Integer> root) {
         List<Integer> ans = new ArrayList<>();
         inorderTraversal(root, ans);
         return ans;
     }
-    
     private static void inorderTraversal(BinaryTreeNode<Integer> root, List<Integer> ans) {
         if (root == null) {
             return;

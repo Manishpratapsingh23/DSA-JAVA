@@ -1,6 +1,5 @@
 
 import java.util.Arrays;
-import leetCode.leetcode_203;
 
 public class JumpGameVI{
     public static int maxResult(int[] nums, int k) {
@@ -32,25 +31,38 @@ public class JumpGameVI{
         return memo[index];
     }
 
-    public static int maxResult_DP(int[] nums, int k) {
-        int memo[]=new int[nums.length];
-        memo[nums.length-1]=nums[nums.length-1];
-        for(int i=nums.length-1;i>=0;i++){
-            int j=i-1;
-            int index=j;
-            while(j<i){
-                    memo[j]+=nums[i];
-                    index=j;
-                }
-            }
-
+    public static int maxResult_DP1(int[] nums, int k) {
+        int dp[]=new int[nums.length];
+        dp[nums.length-1]=nums[nums.length-1];
+        for(int i=nums.length-2;i>=0;i--){
+            int max=Integer.MIN_VALUE;
+            for(int j=1;j<=k && i+j<nums.length;j++) max=Math.max(max,dp[i+j]);
+            dp[i]=max+nums[i];
         }
+        return dp[0];
+    }
+
+    public static int maxResult_DP2(int[] nums, int k) {
+        int dp[]=new int[nums.length];
+        dp[nums.length-1]=nums[nums.length-1];
+        for(int i=nums.length-2;i>=0;i--){
+            dp[i]=Math.max(dp[i+1],dp[i+1]+nums[i]);
+        }
+        return dp[0];
     }
 
     public static void main(String[] args) {
         int nums[]={1,-1,-2,4,-7,3};
         int k=2;
-        System.out.println(maxResultM(nums, k));
-        System.out.println(maxResult(nums, k));
+        int nums1[]={10,-5,-2,4,0,3};
+        int k1=3;
+
+        System.out.println(maxResult_DP1(nums, k));
+        System.out.println(maxResult_DP2(nums, k));
+
+        System.out.println(maxResult_DP1(nums1, k1));
+        System.out.println(maxResult_DP2(nums1, k1));
+        //System.out.println(maxResultM(nums, k));
+        //System.out.println(maxResult(nums, k));
     }
 }

@@ -31,7 +31,7 @@ public class reverseInKgroups {
             else
             {
                 if(prevnext!=null)
-                
+                continue;
             }
         }
 
