@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 public class SubsequenceBetterApproach {
     public static void printSubsequence(String input, String output) {
