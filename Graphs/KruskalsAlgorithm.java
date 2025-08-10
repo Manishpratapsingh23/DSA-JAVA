@@ -1,10 +1,10 @@
 
-import java.util.Arrays;
 import java.util.Scanner;
 /*
  * Problem statement
  * Amazon 
-Given an undirected, connected and weighted graph G(V, E) with V number of vertices (which are numbered from 0 to V-1) and E number of edges.
+Given an undirected, connected and weighted graph G(V, E) with V number of vertices 
+(which are numbered from 0 to V-1) and E number of edges.
 
 Find and print the Minimum Spanning Tree (MST) using Kruskal's algorithm.
 
@@ -58,16 +58,14 @@ public class KruskalsAlgorithm {
             edge.weight = weight;
             input[i] = edge;
         }
-        Arrays.sort(input);
+        // System.out.println("Graph before sorting: ");
+        // print(input);
+            
+        System.out.println("Graph after sorting: ");
+        print(input);
         Edge output[]=Kruskals(input, n);
         System.out.println("MST IS: ");
-        for(Edge edge : output) {
-			if(edge.source < edge.destination)
-			System.out.println( edge.source +" "+ edge.destination+" "+ edge.weight);
-			else {
-				System.out.println(edge.destination+" "+ edge.source+" " + edge.weight);
-			}
-		}
+        print(output);
     }
 
     public static Edge[] Kruskals(Edge input[], int n){
@@ -95,5 +93,15 @@ public class KruskalsAlgorithm {
     private static int findParent(int[] parent, int source) {
         if(parent[source]==source) return source;
         return findParent(parent,parent[source]);
+    }
+
+    private static void print(Edge output[]){
+        for(Edge edge : output) {
+			if(edge.source < edge.destination)
+			System.out.println( edge.source +" "+ edge.destination+" "+ edge.weight);
+			else {
+				System.out.println(edge.destination+" "+ edge.source+" " + edge.weight);
+			}
+		}
     }
 }
