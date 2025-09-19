@@ -33,6 +33,9 @@ public class priorityQueue {
             parentIndex=(childIndex-1)/2;
         } 
     }
+    public void print(){
+        System.out.println(heap);
+    }
     public int removeMin() throws PriorityQueueEmptyException{
         if(isEmpty()){
             throw new PriorityQueueEmptyException();
