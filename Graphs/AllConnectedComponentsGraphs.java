@@ -76,5 +76,4 @@ public class AllConnectedComponentsGraphs {
         }
         ConnectedVertices(edges);
     }
-
 }
