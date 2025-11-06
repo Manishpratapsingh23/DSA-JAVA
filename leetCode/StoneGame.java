@@ -13,6 +13,7 @@ public class StoneGame {
         else{
             ans1=stoneGame(piles, start+1, end, s1, s2+piles[start], !chance);
             ans2=stoneGame(piles, start, end-1, s1, s2+piles[end], !chance);
+            // normal comment
         }
         return ans1 || ans2;
 
