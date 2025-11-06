@@ -69,7 +69,7 @@ public class KruskalsAlgorithm {
     }
 
     public static Edge[] Kruskals(Edge input[], int n){
-        Edge[] output = new Edge[n-1]; 
+        Edge[] output = new Edge[n-1];
 		int[] parent = new int[n]; 
 		for(int i=0;i<parent.length;i++) {
 			parent[i] = i; 
