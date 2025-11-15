@@ -125,6 +125,8 @@ public class Graph {
         System.out.print("DFS traversal : ");
         print_DFS(edges);
         System.out.println();
+
+        // Start BFS traversal
         System.out.print("BFS traversal : ");
         print_BFS(edges);
         
