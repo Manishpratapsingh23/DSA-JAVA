@@ -48,7 +48,7 @@ public class GraphRepresentation {
         int e = sc.nextInt();
         for(int i=0;i<e;i++){
             int source = sc.nextInt();
-            int destination = sc.nextInt();
+            int destination = sc.nextInt() ;
             edgeList.add(new Edges(source, destination));
         }
         return edgeList;
