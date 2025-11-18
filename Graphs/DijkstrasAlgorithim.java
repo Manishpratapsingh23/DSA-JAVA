@@ -46,8 +46,4 @@ public class DijkstrasAlgorithim {
         }
         Dijkstras(graph,v);
     }
-
-    
-
-    
 }
