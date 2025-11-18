@@ -1,4 +1,5 @@
 
+import java.util.Arrays;
 import java.util.Scanner;
 /*
  * Problem statement
@@ -62,6 +63,7 @@ public class KruskalsAlgorithm {
         // print(input);
             
         System.out.println("Graph after sorting: ");
+        Arrays.sort(input);
         print(input);
         Edge output[]=Kruskals(input, n);
         System.out.println("MST IS: ");
