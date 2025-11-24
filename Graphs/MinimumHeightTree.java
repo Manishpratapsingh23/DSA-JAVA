@@ -38,6 +38,29 @@ public class MinimumHeightTree {
         return ans;
         
     }
+    public static List<Integer> findMinHeightTrees1(int n, int[][] edges) {
+        Map<Integer, List<Integer>> map = new HashMap<>();
+        for(int i=0;i<n;i++) map.put(i,new ArrayList<>());
+        for(int arr[] : edges){
+            int s = arr[0];
+            int v = arr[1];
+            map.get(s).add(v);
+            map.get(v).add(s);
+        }
+        List<Integer> ans = new ArrayList<>();
+        int minHeight = n;
+        for(int i=0;i<n;i++){
+            int h = helper(map, i);
+            if(minHeight==h) ans.add(i);
+            else if(h<minHeight){
+                ans.clear();
+                ans.add(i);
+                minHeight = h;
+            }
+        }
+        return ans;
+        
+    }
 
     private static int helper(Map<Integer, List<Integer>> map, int root){
         Set<Integer> visited = new HashSet<>();
