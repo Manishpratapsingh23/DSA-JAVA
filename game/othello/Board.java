@@ -37,7 +37,7 @@ public class Board {
         check=false;
     }
 
-    int getBoardSize(){
+    public int getBoardSize(){
         return boardSize;
     }
 
